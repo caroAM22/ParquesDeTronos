@@ -28,9 +28,9 @@ public class ControlTablero : MonoBehaviour
 
         for(int i = 0; i < N_Jugadores; i++){
 
-            GameObject instance = Instantiate(assetTablero, new Vector3(0,0,0), Quaternion.Euler(0,i*(360f/N_Jugadores),0));
+            GameObject instance = Instantiate(assetTablero, new Vector3(0, 1.21f, 0), Quaternion.Euler(0, i*(360f/N_Jugadores), 0));
 
-            instance.transform.localScale = new Vector3(1,1,Mathf.Tan(180f/N_Jugadores*(Mathf.PI/180)));
+            instance.transform.localScale = new Vector3(Mathf.Tan(180f/N_Jugadores*(Mathf.PI/180)), 1, 1);
 
             nodos.Add(instance);
             
@@ -55,7 +55,7 @@ public class ControlTablero : MonoBehaviour
             
 
             // Cambia la textura por un color al azar CAMBIAR A TEXTURA DE TEMATICA
-            Color newColor = new Color( Random.value, Random.value, Random.value, 1.0f );
+            Color newColor = new Color( Random.value, Random.value, Random.value, 1.0f);
 
             nodos[i].GetComponent<Nodo>().casillasTematicas.ForEach(x => x.GetComponent<Casilla>().material.color = newColor);
             nodos[i].GetComponent<Nodo>().bases.ForEach(x => x.GetComponent<Base>().material.color = newColor);
@@ -66,7 +66,7 @@ public class ControlTablero : MonoBehaviour
             // Crea cada ficha, Espera a que tenga referencia a su Material y lo cambia segun el color anteriormente definido
             for(int j = 0; j < N_Fichas; j++){
 
-                GameObject instanceFicha = Instantiate(assetFicha, new Vector3(0,0,0), Quaternion.Euler(0,0,0));
+                GameObject instanceFicha = Instantiate(assetFicha, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
 
                 yield return new WaitUntil(() => instanceFicha.GetComponent<Ficha>().material != null);
                 instanceFicha.GetComponent<Ficha>().material.color = newColor;
@@ -74,7 +74,7 @@ public class ControlTablero : MonoBehaviour
                 fichas.Add(instanceFicha);
             }
             
-            GameObject jugador = Instantiate(assetJugador, new Vector3(0,0,0), Quaternion.Euler(0,0,0));
+            GameObject jugador = Instantiate(assetJugador, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
 
             jugador.GetComponent<Jugador>().fichas = fichas;
 
@@ -86,8 +86,8 @@ public class ControlTablero : MonoBehaviour
 
             for(int j = 0; j < N_Fichas; j++){
 
-                fichas[j].transform.localScale = new Vector3(15,15,15);
-                fichas[j].transform.rotation = Quaternion.Euler(-90,0,0);
+                fichas[j].transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+                fichas[j].transform.rotation = Quaternion.Euler(-90, 0, 0);
 
                 fichas[j].transform.position = jugador.GetComponent<Jugador>().nodo.GetComponent<Nodo>().bases[j].GetComponent<Base>().render.bounds.center;
             }
