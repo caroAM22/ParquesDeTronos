@@ -6,10 +6,10 @@ public class ControlTablero : MonoBehaviour
 {
 
     //Inicializar referencias
-    public int N_Jugadores;
-    public int N_Fichas;
-    public int N_Dados;
-    public int N_Caras;
+    private int N_Jugadores = Information.N_Jugadores;
+    private int N_Fichas=Information.N_Fichas;
+    private int N_Dados=Information.N_Dados;
+    public int N_Caras=Information.N_Caras;
     public GameObject assetTablero;
     public GameObject assetFicha;
     public GameObject assetJugador;
@@ -19,6 +19,11 @@ public class ControlTablero : MonoBehaviour
     void Start()
     {
         StartCoroutine(PartyLoader());
+    }
+
+    public void setN_Jugadores(int N_Jugadores)
+    {
+        this.N_Jugadores = N_Jugadores;
     }
 
     IEnumerator PartyLoader(){
