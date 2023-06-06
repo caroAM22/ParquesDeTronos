@@ -1,6 +1,6 @@
-# GOT Parks Unity Project
+# GOT Parcheesi Unity Project
 
-This project is a Unity-based park theme developed as a final project for the Software Engineering course. The repository contains various software diagrams created using Draw.io and other tools.
+This project is a Unity-based Parcheesi theme developed as a final project for the Software Engineering course. The repository contains various software diagrams created using Draw.io and other tools.
 
 ## Team Members
 - Luis Andres Altamar Romero: [altamarluis](https://github.com/altamarluis)
