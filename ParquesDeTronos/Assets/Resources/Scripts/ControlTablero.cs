@@ -16,6 +16,8 @@ public class ControlTablero : MonoBehaviour
     public List<GameObject> jugadores;
     public List<GameObject> nodos;
 
+    private int num_casa=0;
+
     void Start()
     {
         StartCoroutine(PartyLoader());
@@ -60,7 +62,8 @@ public class ControlTablero : MonoBehaviour
             
 
             // Cambia la textura por un color al azar CAMBIAR A TEXTURA DE TEMATICA
-            Color newColor = new Color( Random.value, Random.value, Random.value, 1.0f);
+            Color newColor = casa.houseColors[(casa.House)num_casa];
+            num_casa++;
 
             nodos[i].GetComponent<Nodo>().casillasTematicas.ForEach(x => x.GetComponent<Casilla>().material.color = newColor);
             nodos[i].GetComponent<Nodo>().bases.ForEach(x => x.GetComponent<Base>().material.color = newColor);
@@ -82,8 +85,6 @@ public class ControlTablero : MonoBehaviour
             GameObject jugador = Instantiate(assetJugador, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
 
             jugador.GetComponent<Jugador>().fichas = fichas;
-
-            jugador.GetComponent<Jugador>().nombre = (Nombre)i;
 
             jugador.GetComponent<Jugador>().nodo = nodos[i];
 

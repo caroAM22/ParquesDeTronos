@@ -6,7 +6,6 @@ public class Ficha : MonoBehaviour
 {
 
     public bool estado;
-    public Tematica tematica;
 
     public Material material;
     // Start is called before the first frame update

@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MainScreen : MonoBehaviour
 {
-
     [SerializeField] private Button _playButton;
 
     private void Start()
@@ -17,6 +13,7 @@ public class MainScreen : MonoBehaviour
     public void OnPlayButtonClicked()
     {
         _playButton.interactable = false;
-        GameManager.Instance.configuration();
+        GameManager.Instance.GamePlay();
     }
+
 }

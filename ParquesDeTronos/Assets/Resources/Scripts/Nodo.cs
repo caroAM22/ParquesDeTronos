@@ -8,7 +8,6 @@ public class Nodo : MonoBehaviour
     public List<GameObject> casillasNormales;
     public List<GameObject> casillasTematicas;
     public List<GameObject> bases;
-    public Tematica tematica;
 
     void Start()
     {

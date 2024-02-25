@@ -8,7 +8,7 @@ using static UnityEngine.Rendering.HighDefinition.ScalableSettingLevelParameter;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    private int jugadorActual=1;
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
         MainMenu();
     }
 
+    public int getJugadorActual()
+    {
+        return jugadorActual;
+    }
     public void configuration()
     {
         HandleConfigure();
@@ -69,6 +73,19 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Loading Gameplay...");
         StartCoroutine(LoadGameplayAsyncScene("Gameplay"));
+    }
+
+    public void movimiento()
+    {
+        Debug.Log("Movimiento...");
+        if (jugadorActual == 4)
+        {
+            jugadorActual = 1;
+        }
+        else
+        {
+            jugadorActual++;
+        }
     }
 
 

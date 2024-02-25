@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Information : MonoBehaviour
 {
-    public static int N_Jugadores;
-    public static int N_Fichas;
-    public static int N_Dados;
-    public static int N_Caras;
+    public static int N_Jugadores = 4;
+    public static int N_Fichas = 4;
+    public static int N_Dados = 2;
+    public static int N_Caras = 6;
 }
